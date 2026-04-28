@@ -1050,13 +1050,18 @@ class YumBrowserWindow(QMainWindow):
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main():
+    # This enables high-DPI scaling
+    QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+    # Use high-DPI pixmaps for sharper icons
+    QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+    
     app = QApplication(sys.argv)
     app.setApplicationName("YUM Repository Browser")
     app.setOrganizationName("YumBrowser")
 
     # High DPI
-    app.setAttribute(Qt.AA_EnableHighDpiScaling, True)
-    app.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+    # app.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+    # app.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
 
     win = YumBrowserWindow()
     win.show()
